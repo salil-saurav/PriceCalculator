@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator-section">
+            <h2>Sales Margin Calculator</h2>
+            <form class="calculator" method="POST">
+                <label for="good-cost">Your cost of goods (per unit) </label>
+                <input class="num-input" name="good-cost" id="good-cost" type="number" placeholder="0.00" />
+                <label for="list-price"> Listing price </label>
+                <input class="num-input" id="list-price" type="number" placeholder="0.00" />
+                <label for="category"> Product category </label>
+                <select name="category" id="category" onchange=selectedCategory()>
+                    <option value="selected" selected>Select a Category</option>
+                    <option value="15">category One</option>
+                    <option value="20">category Two</option>
+                    <option value="30">category Three</option>
+                    <option value="40">category Four</option>
+                    <option value="50">category Five</option>
+                </select>
+                <label for="method"> Fulfillment method </label>
+                <select name="method" id="method" onchange=selectedMethod()>
+                    <option value="method-selected" selected>Select an Option</option>
+                    <option value="10">Option One</option>
+                    <option value="20">Option Two</option>
+                </select>
+
+                <label for="shipping-cost"> Shipping cost per sale </label>
+                <input id="shipping-cost" class="num-input" type="number" placeholder="0.00" onkeypress=result() />
+            </form>
+        </div>
+        <div class="result-section">
+            <h2>Result</h2>
+            <div class="result">
+                <h2>Breakdown</h2>
+                <div class="breakdown">
+                    <div class="price-label">
+                        <ul>
+                            <li>
+                                Item sale price
+                                <span class="sale-result">0.00</span>
+                            </li>
+                            <li>Cost of goods <span class="cost-goods">0.00</span></li>
+                            <li>
+                                Shipping cost per sale
+                                <span class="shipping-result">0.00</span>
+                            </li>
+                            <li>
+                                Category referral fee <span class="fees">0.00</span>
+                            </li>
+                            <li>TOTAL MARGIN <span class="total-result">0.00</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="loading"></div>
+
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
